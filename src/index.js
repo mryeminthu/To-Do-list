@@ -1,3 +1,6 @@
+import _ from 'lodash';
+import './style.css';
+
 const lists = [
     { description: 'Wash the dishes', completed: false, index: 1 },
     { description: 'Complete to-do list project', completed: false, index: 2 },
