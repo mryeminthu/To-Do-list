@@ -23,7 +23,6 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 <!-- PROJECT DESCRIPTION -->
@@ -141,7 +140,7 @@ npx eslint .
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- To create Responsive Web Design. 
+- To create Responsive Web Design.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
