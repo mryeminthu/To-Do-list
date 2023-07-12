@@ -1,3 +1,5 @@
+import './style.css';
+
 {
   const lists = JSON.parse(localStorage.getItem('lists')) || [];
 
