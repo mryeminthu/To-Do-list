@@ -1,24 +1,59 @@
 import './style.css';
+import {
+  provideLists, addTask, deleteTask, editTask, toggleCompleted, clearCompletedTasks,
+} from './modules/add-remove.js';
 
-const lists = [
-  { description: 'Wash the dishes', completed: false, index: 1 },
-  { description: 'Complete to-do list project', completed: false, index: 2 },
-];
+document.addEventListener('DOMContentLoaded', () => {
+  provideLists();
 
-const provideLists = () => {
-  const placeholder = document.querySelector('.todo-placeholder');
-  placeholder.innerHTML = '';
-  const sortedLists = lists.sort((a, b) => a.index - b.index);
-  sortedLists.forEach((list) => {
-    const listItem = document.createElement('div');
-    listItem.className = 'todo';
-    listItem.innerHTML = `
-        <div>
-          <input type="checkbox" class="list" ${list.completed ? 'checked' : ''} />${list.description}
-        </div>
-        <i class="fa-solid fa-ellipsis-vertical"></i>
-      `;
-    placeholder.appendChild(listItem);
+  const addForm = document.querySelector('form');
+  addForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const input = document.querySelector('.addList');
+    const description = input.value;
+    if (description.trim() !== '') {
+      addTask(description);
+      input.value = '';
+    }
   });
-};
-window.addEventListener('DOMContentLoaded', provideLists);
+
+  const todoItems = document.querySelector('.todo-placeholder');
+  todoItems.addEventListener('click', (e) => {
+    const { target } = e;
+    if (target.classList.contains('fa-ellipsis-vertical')) {
+      const index = target.getAttribute('data-index');
+      const listItem = target.parentNode;
+      const listDescription = listItem.querySelector('.list-description');
+      listItem.removeChild(target);
+      const deleteIcon = document.createElement('i');
+      deleteIcon.className = 'fa-solid fa-trash-can delete';
+      listItem.appendChild(deleteIcon);
+      deleteIcon.addEventListener('click', () => {
+        deleteTask(index - 1);
+      });
+      listDescription.contentEditable = true;
+      listDescription.focus();
+      listDescription.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+          event.preventDefault();
+          listDescription.contentEditable = false;
+          const newText = listDescription.innerText.trim();
+          editTask(index - 1, newText);
+        }
+      });
+    } else if (target.classList.contains('list')) {
+      const index = target.getAttribute('data-index');
+      const listItem = target.parentNode;
+      const listDescription = listItem.querySelector('.list-description');
+      const textDecoration = target.checked ? 'line-through' : 'none';
+      listDescription.style.textDecoration = textDecoration;
+      listDescription.classList.toggle('checked');
+      toggleCompleted(index - 1);
+    }
+  });
+
+  const clearButton = document.querySelector('.clear');
+  clearButton.addEventListener('click', () => {
+    clearCompletedTasks();
+  });
+});
