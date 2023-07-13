@@ -1,6 +1,11 @@
 import './style.css';
 import {
-  provideLists, addTask, deleteTask, editTask, toggleCompleted, clearCompletedTasks,
+  provideLists,
+  addTask,
+  deleteTask,
+  editTask,
+  toggleCompleted,
+  clearCompletedTasks,
 } from './modules/add-remove.js';
 
 document.addEventListener('DOMContentLoaded', () => {
