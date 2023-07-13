@@ -67,7 +67,7 @@ This is a todo list project and within this project you can add and delete your 
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://mryeminthu.github.io/To-Do-list/)
+- [Live Demo Link](https://mryeminthu.github.io/To-Do-list/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
