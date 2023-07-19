@@ -1,9 +1,13 @@
-export let lists = [];
+const listsData = [];
 
 if (typeof localStorage !== 'undefined') {
-  lists = JSON.parse(localStorage.getItem('lists')) || [];
+  const storedLists = JSON.parse(localStorage.getItem('lists'));
+  if (Array.isArray(storedLists)) {
+    listsData.push(...storedLists);
+  }
 }
 
+export const lists = listsData;
 export const saveLists = () => {
   if (typeof localStorage !== 'undefined') {
     localStorage.setItem('lists', JSON.stringify(lists));

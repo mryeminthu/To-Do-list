@@ -4,8 +4,10 @@ import {
   deleteTask,
   lists,
   provideLists,
-} from './add-remove';
+} from './add-remove.js';
+
 const { JSDOM } = require('jsdom');
+
 const dom = new JSDOM('<!DOCTYPE html><html><body><div class="todo-placeholder"></div></body></html>');
 global.document = dom.window.document;
 global.window = dom.window;
@@ -106,6 +108,6 @@ describe('deleteTask', () => {
 
     const checkboxElement = todoElement.querySelector('.list');
     expect(checkboxElement).toBeDefined();
-    expect(checkboxElement.dataset.index).toBe('1'); 
+    expect(checkboxElement.dataset.index).toBe('1');
   });
 });
