@@ -1,7 +1,17 @@
-export const lists = JSON.parse(localStorage.getItem('lists')) || [];
+const listsData = [];
 
+if (typeof localStorage !== 'undefined') {
+  const storedLists = JSON.parse(localStorage.getItem('lists'));
+  if (Array.isArray(storedLists)) {
+    listsData.push(...storedLists);
+  }
+}
+
+export const lists = listsData;
 export const saveLists = () => {
-  localStorage.setItem('lists', JSON.stringify(lists));
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem('lists', JSON.stringify(lists));
+  }
 };
 
 export const updateIndexes = () => {
@@ -20,12 +30,12 @@ export const provideLists = () => {
     const checkedClass = list.completed ? 'checked' : '';
     const textDecoration = list.completed ? 'line-through' : 'none';
     listItem.innerHTML = `
-        <div>
-          <input type="checkbox" class="list ${checkedClass}" data-index="${list.index}" ${list.completed ? 'checked' : ''}/>
-          <span class="list-description" data-index="${list.index}" style="text-decoration: ${textDecoration}">${list.description}</span>
-        </div>
-        <i class="fa-solid fa-ellipsis-vertical" data-index="${list.index}"></i>
-      `;
+      <div>
+        <input type="checkbox" class="list ${checkedClass}" data-index="${list.index}" ${list.completed ? 'checked' : ''}/>
+        <span class="list-description" data-index="${list.index}" style="text-decoration: ${textDecoration}">${list.description}</span>
+      </div>
+      <i class="fa-solid fa-ellipsis-vertical" data-index="${list.index}"></i>
+    `;
     placeholder.appendChild(listItem);
   });
 };
