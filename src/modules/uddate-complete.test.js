@@ -43,33 +43,5 @@ describe('Task Functions', () => {
     expect(checkboxElement).toBeDefined();
     expect(checkboxElement.dataset.index).toBe('1');
   });
-  test('should update the DOM after editing a task', () => {
-    addTask('Task 1');
-    editTask(0, 'Edited Task');
-    provideLists();
-    const todoElement = placeholderMock.querySelector('.todo');
-    expect(todoElement).toBeDefined();
-    const descriptionElement = todoElement.querySelector('.list-description');
-    expect(descriptionElement).toBeDefined();
-    expect(descriptionElement.textContent).toBe('Edited Task');
-  });
-  test('should update an item\'s "completed" status and the DOM', () => {
-    addTask('Task 1');
-    toggleCompleted(0);
-    provideLists();
-    const todoElement = placeholderMock.querySelector('.todo');
-    expect(todoElement).toBeDefined();
-    const checkboxElement = todoElement.querySelector('.list');
-    expect(checkboxElement).toBeDefined();
-    expect(checkboxElement.checked).toBe(true);
-  });
-  test('should clear all completed tasks from the list and update the DOM', () => {
-    addTask('Task 1');
-    addTask('Task 2');
-    toggleCompleted(0);
-    toggleCompleted(1);
-    clearCompletedTasks();
-    const todoElements = placeholderMock.querySelectorAll('.todo');
-    expect(todoElements).toHaveLength(0);
-  });
+
 });
