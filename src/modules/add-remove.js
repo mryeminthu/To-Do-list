@@ -8,6 +8,7 @@ if (typeof localStorage !== 'undefined') {
 }
 
 export const lists = listsData;
+
 export const saveLists = () => {
   if (typeof localStorage !== 'undefined') {
     localStorage.setItem('lists', JSON.stringify(lists));
