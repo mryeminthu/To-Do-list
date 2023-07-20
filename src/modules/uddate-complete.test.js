@@ -71,5 +71,6 @@ describe('Task Functions', () => {
     clearCompletedTasks();
     const todoElements = placeholderMock.querySelectorAll('.todo');
     expect(todoElements).toHaveLength(0);
+    
   });
 });
