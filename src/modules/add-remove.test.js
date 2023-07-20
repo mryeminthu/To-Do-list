@@ -46,8 +46,8 @@ describe('Task Functions', () => {
 
   test('should update the DOM after editing a task', () => {
     addTask('Task 1');
-    editTask(0, 'Edited Task'); 
-    provideLists(); 
+    editTask(0, 'Edited Task');
+    provideLists();
 
     const todoElement = placeholderMock.querySelector('.todo');
     expect(todoElement).toBeDefined();
@@ -59,8 +59,8 @@ describe('Task Functions', () => {
 
   test('should update an item\'s "completed" status and the DOM', () => {
     addTask('Task 1');
-    toggleCompleted(0); 
-    provideLists(); 
+    toggleCompleted(0);
+    provideLists();
 
     const todoElement = placeholderMock.querySelector('.todo');
     expect(todoElement).toBeDefined();
@@ -90,7 +90,7 @@ describe('Task Functions', () => {
     lists.push({ description: 'Task 1', completed: false, index: 1 });
     lists.push({ description: 'Task 2', completed: true, index: 2 });
     lists.push({ description: 'Task 3', completed: true, index: 3 });
-    clearCompletedTasks(); 
+    clearCompletedTasks();
 
     const todoElements = placeholderMock.querySelectorAll('.todo');
     expect(todoElements).toHaveLength(1);

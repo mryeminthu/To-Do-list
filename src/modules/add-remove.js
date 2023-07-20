@@ -61,13 +61,13 @@ export const deleteTask = (index) => {
 
 export const editTask = (index, newDescription) => {
   lists[index].description = newDescription;
-  provideLists(); 
+  provideLists();
   saveLists();
 };
 
 export const toggleCompleted = (index) => {
   lists[index].completed = !lists[index].completed;
-  provideLists(); 
+  provideLists();
   saveLists();
 };
 

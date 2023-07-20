@@ -73,5 +73,3 @@ describe('Task Functions', () => {
     expect(todoElements).toHaveLength(0);
   });
 });
-
-  
