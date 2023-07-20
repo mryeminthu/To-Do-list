@@ -96,7 +96,5 @@ describe('Task Functions', () => {
     expect(todoElements).toHaveLength(1);
     expect(todoElements[0].querySelector('.list-description').textContent).toBe('Task 1');
     
-
-    
   });
 });
