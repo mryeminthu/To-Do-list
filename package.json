@@ -34,6 +34,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "@testing-library/dom": "^9.3.1",
     "abab": "^2.0.6",
     "abbrev": "^1.1.1",
     "acorn": "^8.10.0",

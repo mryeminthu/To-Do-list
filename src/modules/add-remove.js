@@ -1,8 +1,13 @@
-export let lists = [];
+const listsData = [];
 
 if (typeof localStorage !== 'undefined') {
-  lists = JSON.parse(localStorage.getItem('lists')) || [];
+  const storedLists = JSON.parse(localStorage.getItem('lists'));
+  if (Array.isArray(storedLists)) {
+    listsData.push(...storedLists);
+  }
 }
+
+export const lists = listsData;
 
 export const saveLists = () => {
   if (typeof localStorage !== 'undefined') {
@@ -56,13 +61,13 @@ export const deleteTask = (index) => {
 
 export const editTask = (index, newDescription) => {
   lists[index].description = newDescription;
-  provideLists();
+  provideLists(); 
   saveLists();
 };
 
 export const toggleCompleted = (index) => {
   lists[index].completed = !lists[index].completed;
-  provideLists();
+  provideLists(); 
   saveLists();
 };
 
