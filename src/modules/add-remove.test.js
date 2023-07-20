@@ -95,6 +95,5 @@ describe('Task Functions', () => {
     const todoElements = placeholderMock.querySelectorAll('.todo');
     expect(todoElements).toHaveLength(1);
     expect(todoElements[0].querySelector('.list-description').textContent).toBe('Task 1');
-    
   });
 });
