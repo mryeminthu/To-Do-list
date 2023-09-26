@@ -29,7 +29,7 @@
 
 # 📖 [To do list] <a name="about-project"></a>
 
-This is a todo list project and within this project you can add and delete your daily job.
+The Todo List Website is an online platform created to assist users in efficiently handling their tasks and to-do lists.
 
 ## 🛠 Built With <a name="built-with"></a>
 
